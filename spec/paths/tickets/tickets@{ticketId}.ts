@@ -1,8 +1,6 @@
 import { PathItemObject, OperationObject, ResponseObject, ResponsesObject } from 'openapi3-ts';
 import { ref as errorResponseRef } from '../../components/responses/error';
 import { ref as ticketDataFieldRef } from '../../components/schemas/tickets/tickets';
-import { ref as pageRef } from '../../components/parameters/page';
-import { ref as sizeRef } from '../../components/parameters/size';
 
 const get: OperationObject = {
   summary: 'Retrieve ticket by id',
@@ -11,11 +9,7 @@ const get: OperationObject = {
   security: [{
     TOKEN: [],
   }],
-  parameters: [{
-    $ref: pageRef,
-  }, {
-    $ref: sizeRef,
-  }],
+  parameters: [],
   responses: {
     200: {
       description: 'Ticket object',
