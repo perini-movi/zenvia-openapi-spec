@@ -4,19 +4,9 @@ import { createComponentRef } from '../../../../utils/ref';
 const base: SchemaObject = {
   title: 'Ticket tags',
   description: 'Ticket tags information.',
-  type: 'object',
-  properties: {
-    id: {
-      title: 'ID',
-      description: 'ID of the ticket tag.',
-      type: 'string',
-      readOnly: true,
-    },
-    name: {
-      title: 'Tag name',
-      description: 'Name of the tag',
-      type: 'string',
-    },
+  type: 'array',
+  items: {
+    type: 'string',
   },
 };
 
