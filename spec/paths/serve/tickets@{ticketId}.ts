@@ -1,6 +1,6 @@
 import { PathItemObject, OperationObject, ResponseObject, ResponsesObject } from 'openapi3-ts';
 import { ref as errorResponseRef } from '../../components/responses/error';
-import { ref as ticketDataFieldRef } from '../../components/schemas/tickets/tickets';
+import { ref as ticketDataFieldRef } from '../../components/schemas/serve/tickets';
 
 const get: OperationObject = {
   summary: 'Retrieve ticket by id',

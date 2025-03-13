@@ -1,13 +1,13 @@
 import { PathItemObject, OperationObject, ResponseObject, ResponsesObject } from 'openapi3-ts';
 import { ref as errorResponseRef } from '../../components/responses/error';
-import { ref as serviceDataFieldRef } from '../../components/schemas/tickets/services';
+import { ref as tagDataFieldRef } from '../../components/schemas/serve/tags';
 import { ref as pageRef } from '../../components/parameters/page';
 import { ref as sizeRef } from '../../components/parameters/size';
 
 const get: OperationObject = {
-  summary: 'List services',
-  description: 'Lists all services available.',
-  tags: ['Services'],
+  summary: 'List tags',
+  description: 'Lists all tags available.',
+  tags: ['Tags'],
   security: [{
     TOKEN: [],
   }],
@@ -18,13 +18,13 @@ const get: OperationObject = {
   }],
   responses: {
     200: {
-      description: 'Services available',
+      description: 'Tags available',
       content: {
         'application/json': {
           schema: {
             type: 'array',
             items: {
-              $ref: serviceDataFieldRef,
+              $ref: tagDataFieldRef,
             },
           },
         },

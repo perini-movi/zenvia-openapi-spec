@@ -1,9 +1,10 @@
 import { SchemaObject } from 'openapi3-ts';
 import { createComponentRef } from '../../../../utils/ref';
+import { ref as forTicketTypeRef } from './context/access-level-ticket-type';
+import { ref as profileTypeRef } from './context/profile-type';
 
 const base: SchemaObject = {
   title: 'Services',
-  description: 'Service information.',
   type: 'object',
   properties: {
     id: {
@@ -27,20 +28,18 @@ const base: SchemaObject = {
       description: 'Parent of the service',
       type: 'integer',
     },
-    ticketType: {
-      title: 'Ticket Type',
-      description: 'Ticket type which can use the service',
-      type: 'string',
+    forTicketType: {
+      $ref: forTicketTypeRef,
     },
     visibleTo: {
       title: 'Visible To',
-      description: 'Defines who can view the service',
-      type: 'string',
+      description: 'Defines who can view the resource',
+      $ref: profileTypeRef,
     },
     allowSelection: {
       title: 'Allow Selection',
       description: 'Defines who can select the service',
-      type: 'string',
+      $ref: profileTypeRef,
     },
     allowFinishTicket: {
       title: 'Allow Finish Ticket',
@@ -52,10 +51,13 @@ const base: SchemaObject = {
       description: 'Defines that all categories are allowed in the service',
       type: 'boolean',
     },
-    categoriesAllowed: {
-      title: 'Categories Allowed',
-      description: 'Defines a list of categories that are allowed in the service',
+    categories: {
+      title: 'Categories',
+      description: 'Defines a list of categories that are allowed with the service',
       type: 'array',
+      items: {
+        type: 'integer',
+      },
     },
     defaultCategoryId: {
       title: 'Default Category Id',
