@@ -3,6 +3,7 @@ import { ref as errorResponseRef } from '../../components/responses/error';
 import { ref as ticketTagDataFieldRef } from '../../components/schemas/serve/ticket-tags';
 import { ref as pageRef } from '../../components/parameters/page';
 import { ref as sizeRef } from '../../components/parameters/size';
+import { ref as ticketIdRef } from '../../components/parameters/serve/ticketId';
 
 const get: OperationObject = {
   summary: 'List ticket tags',
@@ -62,6 +63,9 @@ const get: OperationObject = {
 
 const path: PathItemObject = {
   get,
+  parameters: [{
+    $ref: ticketIdRef,
+  }],
 };
 
 export default path;

@@ -2,6 +2,7 @@ import { PathItemObject, OperationObject, ResponseObject, ResponsesObject } from
 import { ref as errorResponseRef } from '../../components/responses/error';
 import { ref as pageRef } from '../../components/parameters/page';
 import { ref as sizeRef } from '../../components/parameters/size';
+import { ref as teamIdRef } from '../../components/parameters/serve/teamId';
 
 const get: OperationObject = {
   summary: 'Retrieve users linked to team',
@@ -60,6 +61,9 @@ const get: OperationObject = {
 
 const path: PathItemObject = {
   get,
+  parameters: [{
+    $ref: teamIdRef,
+  }],
 };
 
 export default path;

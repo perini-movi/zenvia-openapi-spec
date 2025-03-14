@@ -3,6 +3,7 @@ import { ref as errorResponseRef } from '../../components/responses/error';
 import { ref as ticketActionDataFieldRef } from '../../components/schemas/serve/ticket-actions';
 import { ref as pageRef } from '../../components/parameters/page';
 import { ref as sizeRef } from '../../components/parameters/size';
+import { ref as ticketIdRef } from '../../components/parameters/serve/ticketId';
 
 const get: OperationObject = {
   summary: 'List ticket actions',
@@ -62,6 +63,9 @@ const get: OperationObject = {
 
 const path: PathItemObject = {
   get,
+  parameters: [{
+    $ref: ticketIdRef,
+  }],
 };
 
 export default path;

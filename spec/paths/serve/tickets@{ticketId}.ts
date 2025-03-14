@@ -1,6 +1,7 @@
 import { PathItemObject, OperationObject, ResponseObject, ResponsesObject } from 'openapi3-ts';
 import { ref as errorResponseRef } from '../../components/responses/error';
 import { ref as ticketDataFieldRef } from '../../components/schemas/serve/tickets';
+import { ref as ticketIdRef } from '../../components/parameters/serve/ticketId';
 
 const get: OperationObject = {
   summary: 'Retrieve ticket by id',
@@ -32,6 +33,9 @@ const get: OperationObject = {
 
 const path: PathItemObject = {
   get,
+  parameters: [{
+    $ref: ticketIdRef,
+  }],
 };
 
 export default path;
