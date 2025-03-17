@@ -4,7 +4,6 @@ import { createComponentRef } from '../../../../utils/ref';
 const base: SchemaObject = {
   title: 'Ticket Status History',
   type: 'object',
-  readOnly: true,
   properties: {
     status: {
       title: 'Status',
