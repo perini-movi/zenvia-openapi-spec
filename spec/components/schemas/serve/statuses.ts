@@ -37,7 +37,7 @@ const base: SchemaObject = {
     backgroundColor: {
       title: 'Background Color',
       type: 'string',
-    }
+    },
   },
 };
 
