@@ -11,7 +11,7 @@ const base: SchemaObject = {
     id: {
       title: 'ID',
       description: 'ID of the ticket action.',
-      type: 'string',
+      type: 'integer',
       readOnly: true,
     },
     type: {
