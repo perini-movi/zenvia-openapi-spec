@@ -17,10 +17,7 @@ const get: OperationObject = {
       content: {
         'application/json': {
           schema: {
-            type: 'array',
-            items: {
-              $ref: ticketDataFieldRef,
-            },
+            $ref: ticketDataFieldRef,
           },
         },
       },
