@@ -1,8 +1,8 @@
 import { ParameterObject } from 'openapi3-ts';
 import { createComponentRef } from '../../../../utils/ref';
 
-const ticketActionId: ParameterObject = {
-  name: 'ticketActionId',
+const actionId: ParameterObject = {
+  name: 'actionId',
   in: 'path',
   required: true,
   description: 'The ticket action identifier',
@@ -12,4 +12,4 @@ const ticketActionId: ParameterObject = {
 };
 
 export const ref = createComponentRef(__filename);
-export default ticketActionId;
+export default actionId;
