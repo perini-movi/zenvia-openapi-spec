@@ -2,9 +2,10 @@ import { SchemaObject } from 'openapi3-ts';
 import { createComponentRef } from '../../../../utils/ref';
 import { ref as ticketTypeRef } from './context/ticket-type';
 import { ref as originRef } from './context/origin';
+import { ref as systemStatusRef } from './context/system-status';
 
 const base: SchemaObject = {
-  title: 'Tickets',
+  title: 'Ticket',
   description: 'Ticket information.',
   type: 'object',
   properties: {
@@ -32,20 +33,87 @@ const base: SchemaObject = {
       description: 'Urgency of the ticket',
       type: 'integer',
     },
+    urgency: {
+      title: 'Urgency',
+      type: 'object',
+      properties: {
+        id: {
+          title: 'Urgency Id',
+          description: 'Urgency of the ticket',
+          type: 'integer',
+        },
+        name: {
+          title: 'Urgency Name',
+          description: 'Urgency name of the ticket',
+          type: 'string',
+        },
+      },
+    },
     categoryId: {
       title: 'Category Id',
       description: 'Category of the ticket',
       type: 'integer',
+    },
+    category: {
+      title: 'Category',
+      type: 'object',
+      properties: {
+        id: {
+          title: 'Category Id',
+          description: 'Category of the ticket',
+          type: 'integer',
+        },
+        name: {
+          title: 'Category Name',
+          description: 'Category name of the ticket',
+          type: 'string',
+        },
+      },
     },
     statusId: {
       title: 'Status Id',
       description: 'Status of the ticket',
       type: 'integer',
     },
+    status: {
+      title: 'Status',
+      type: 'object',
+      properties: {
+        id: {
+          title: 'Status Id',
+          description: 'Status of the ticket',
+          type: 'integer',
+        },
+        name: {
+          title: 'Status Name',
+          description: 'Status name of the ticket',
+          type: 'string',
+        },
+        systemStatus: {
+          $ref: systemStatusRef,
+        },
+      },
+    },
     justificationId: {
       title: 'Justification Id',
       description: 'Justification linked with the last status of the ticket',
       type: 'integer',
+    },
+    justification: {
+      title: 'Justification',
+      type: 'object',
+      properties: {
+        id: {
+          title: 'Justification Id',
+          description: 'Justification of the ticket',
+          type: 'integer',
+        },
+        name: {
+          title: 'Justification Name',
+          description: 'Justification name of the ticket',
+          type: 'string',
+        },
+      },
     },
     origin: {
       $ref: originRef,
@@ -65,11 +133,43 @@ const base: SchemaObject = {
       type: 'string',
       example: '5404ed19-2994-4831-bb33-627e27b18ab1',
     },
+    owner: {
+      title: 'Owner',
+      type: 'object',
+      properties: {
+        id: {
+          title: 'Owner Id',
+          description: 'Owner of the ticket',
+          type: 'integer',
+        },
+        name: {
+          title: 'Owner Name',
+          description: 'Owner name of the ticket',
+          type: 'string',
+        },
+      },
+    },
     ownerTeamId: {
       title: 'Owner Team Id',
       description: 'Team Id if ticket owner is a team',
       type: 'integer',
       example: 'Agents',
+    },
+    ownerTeam: {
+      title: 'Owner Team',
+      type: 'object',
+      properties: {
+        id: {
+          title: 'Owner Team Id',
+          description: 'Owner Team of the ticket',
+          type: 'integer',
+        },
+        name: {
+          title: 'Owner Team Name',
+          description: 'Owner Team name of the ticket',
+          type: 'string',
+        },
+      },
     },
     clients: {
       title: 'Clients',
@@ -84,6 +184,29 @@ const base: SchemaObject = {
       title: 'Service Id',
       description: 'Service Id of the ticket',
       type: 'integer',
+    },
+    services: {
+      title: 'Services',
+      description: 'Services tree of the service linked in ticket',
+      type: 'array',
+      readOnly: true,
+      items: {
+        type: 'object',
+        properties: {
+          id: {
+            title: 'Id',
+            type: 'integer',
+          },
+          name: {
+            title: 'Name',
+            type: 'string',
+          },
+          level: {
+            title: 'Level',
+            type: 'integer',
+          },
+        },
+      },
     },
     resolvedAt: {
       title: 'Resolved At',
