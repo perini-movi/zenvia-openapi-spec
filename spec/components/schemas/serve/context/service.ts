@@ -4,6 +4,7 @@ import { createComponentRef } from '../../../../../utils/ref';
 const base: SchemaObject = {
   title: 'Service',
   type: 'object',
+  readOnly: true,
   properties: {
     id: {
       title: 'Service ID',

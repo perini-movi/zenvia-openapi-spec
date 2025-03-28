@@ -8,6 +8,7 @@ import { ref as categoryRef } from './context/category';
 import { ref as ownerTeamRef } from './context/owner-team';
 import { ref as serviceRef } from './context/service';
 import { ref as originTypeRef } from './context/origin-type';
+import { ref as customFieldValuesRef } from './context/custom-field-values';
 
 const base: SchemaObject = {
   title: 'Tickets',
@@ -274,6 +275,14 @@ const base: SchemaObject = {
             },
           },
         },
+      },
+    },
+    customFields: {
+      title: 'Custom Fields Values',
+      type: 'array',
+      writeOnly: true,
+      items: {
+        $ref: customFieldValuesRef,
       },
     },
   },

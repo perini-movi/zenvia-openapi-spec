@@ -23,10 +23,7 @@ const get: OperationObject = {
       content: {
         'application/json': {
           schema: {
-            type: 'array',
-            items: {
-              $ref: ticketTagDataFieldRef,
-            },
+            $ref: ticketTagDataFieldRef,
           },
         },
       },
@@ -61,8 +58,40 @@ const get: OperationObject = {
 };
 
 
+const post: OperationObject = {
+  summary: 'Add ticket tags',
+  description: 'Add new ticket tags to ticket.',
+  tags: ['Tickets'],
+  security: [{
+    TOKEN: [],
+  }],
+  parameters: [],
+  requestBody: {
+    content: {
+      'application/json': {
+        $ref: ticketTagDataFieldRef,
+      },
+    },
+  },
+  responses: {
+    200: {
+      description: 'Ticket object',
+      content: {
+        'application/json': {
+          $ref: ticketTagDataFieldRef,
+        },
+      },
+    } as ResponseObject,
+    default: {
+      $ref: errorResponseRef,
+    },
+  } as ResponsesObject,
+};
+
+
 const path: PathItemObject = {
   get,
+  post,
   parameters: [{
     $ref: ticketIdRef,
   }],

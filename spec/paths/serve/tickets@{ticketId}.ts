@@ -28,8 +28,43 @@ const get: OperationObject = {
   } as ResponsesObject,
 };
 
+const patch: OperationObject = {
+  summary: 'Update ticket by id',
+  description: 'Update ticket information by id.',
+  tags: ['Tickets'],
+  security: [{
+    TOKEN: [],
+  }],
+  parameters: [],
+  requestBody: {
+    content: {
+      'application/json': {
+        schema: {
+          $ref: ticketDataFieldRef,
+        },
+      },
+    },
+  },
+  responses: {
+    200: {
+      description: 'Ticket object',
+      content: {
+        'application/json': {
+          schema: {
+            $ref: ticketDataFieldRef,
+          },
+        },
+      },
+    } as ResponseObject,
+    default: {
+      $ref: errorResponseRef,
+    },
+  } as ResponsesObject,
+};
+
 const path: PathItemObject = {
   get,
+  patch,
   parameters: [{
     $ref: ticketIdRef,
   }],

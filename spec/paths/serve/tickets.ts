@@ -59,8 +59,43 @@ const get: OperationObject = {
   } as ResponsesObject,
 };
 
+const post: OperationObject = {
+  summary: 'Create ticket',
+  description: 'Create new ticket.',
+  tags: ['Tickets'],
+  security: [{
+    TOKEN: [],
+  }],
+  parameters: [],
+  requestBody: {
+    content: {
+      'application/json': {
+        schema: {
+          $ref: ticketDataFieldRef,
+        },
+      },
+    },
+  },
+  responses: {
+    200: {
+      description: 'Ticket object',
+      content: {
+        'application/json': {
+          schema: {
+            $ref: ticketDataFieldRef,
+          },
+        },
+      },
+    } as ResponseObject,
+    default: {
+      $ref: errorResponseRef,
+    },
+  } as ResponsesObject,
+};
+
 const path: PathItemObject = {
   get,
+  post,
 };
 
 export default path;
