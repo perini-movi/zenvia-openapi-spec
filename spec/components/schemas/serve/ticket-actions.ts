@@ -19,28 +19,42 @@ const base: SchemaObject = {
     type: {
       $ref: ticketTypeRef,
     },
-    justification: {
-      $ref: justificationRef,
+    origin: {
+      $ref: originRef,
+    },
+    description: {
+      title: 'Description',
+      type: 'string',
+    },
+    statusId: {
+      title: 'Status ID',
+      description: 'Status identification',
+      type: 'integer',
+      writeOnly: true,
     },
     status: {
       $ref: statusRef,
     },
-    origin: {
-      $ref: originRef,
+    justificationId: {
+      title: 'Justification ID',
+      description: 'Justification identification',
+      type: 'integer',
+      writeOnly: true,
+    },
+    justification: {
+      $ref: justificationRef,
     },
     createdAt: {
       title: 'Created At',
       description: 'Timestamp of the ticket creation.',
       type: 'string',
       example: '2022-05-23T19:37:59.000Z',
-      readOnly: true,
     },
-    createdBy: {
-      title: 'Created By',
+    createdById: {
+      title: 'Created By ID',
       description: 'Created by identifier',
       type: 'string',
       example: '3525fdd7-34c7-4159-bf7c-b33e4e772c05',
-      readOnly: true,
     },
   },
 };

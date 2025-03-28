@@ -16,7 +16,7 @@ const base: SchemaObject = {
       description: 'Name of the service.',
       type: 'string',
       readOnly: true,
-    }
+    },
   },
 };
 

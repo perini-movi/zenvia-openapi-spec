@@ -5,6 +5,7 @@ import { ref as justificationRef } from './context/justification';
 import { ref as statusRef } from './context/status';
 import { ref as urgencyRef } from './context/urgency';
 import { ref as categoryRef } from './context/category';
+import { ref as ownerTeamRef } from './context/owner-team';
 import { ref as serviceRef } from './context/service';
 import { ref as originTypeRef } from './context/origin-type';
 
@@ -16,19 +17,19 @@ const base: SchemaObject = {
     id: {
       title: 'ID',
       description: 'ID of the ticket.',
-      type: 'string',
+      type: 'integer',
       readOnly: true,
       nullable: false,
     },
     protocol: {
-      ticket: 'Protocol',
+      title: 'Protocol',
+      type: 'string',
       description: 'Protocol identifier that clients can use to track the ticket',
       readOnly: true,
       nullable: false,
     },
     type: {
       $ref: ticketTypeRef,
-      nullable: false,
     },
     origin: {
       $ref: originTypeRef,
@@ -95,21 +96,7 @@ const base: SchemaObject = {
       writeOnly: true,
     },
     ownerTeam: {
-      title: 'Owner Team',
-      description: 'Owner team if ticket owner is a team',
-      type: 'object',
-      readOnly: true,
-      nullable: true,
-      properties: {
-        id: {
-          title: 'Owner Team Id',
-          type: 'integer',
-        },
-        name: {
-          title: 'Owner Team Name',
-          type: 'string',
-        },
-      },
+      $ref: ownerTeamRef,
     },
     categoryId: {
       title: 'Category ID',
@@ -127,7 +114,7 @@ const base: SchemaObject = {
       writeOnly: true,
     },
     urgency: {
-      ref: urgencyRef,
+      $ref: urgencyRef,
     },
     statusId: {
       title: 'Status ID',
@@ -249,6 +236,7 @@ const base: SchemaObject = {
       description: 'The last user that changed the solution',
       type: 'string',
       nullable: true,
+      example: '5404ed19-2994-4831-bb33-627e27b18ab1',
     },
     agreement: {
       title: 'Agreement',

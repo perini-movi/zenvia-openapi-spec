@@ -4,6 +4,7 @@ import { createComponentRef } from '../../../../../utils/ref';
 const ticketType: SchemaObject = {
     title: 'Ticket Type',
     type: 'string',
+    nullable: false,
     enum: [
         'Internal', 'Public',
     ],

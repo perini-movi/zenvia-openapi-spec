@@ -1,21 +1,17 @@
 import { SchemaObject } from 'openapi3-ts';
 import { createComponentRef } from '../../../../utils/ref';
+import { ref as justificationRef } from './context/justification';
+import { ref as statusRef } from './context/status';
 
 const base: SchemaObject = {
   title: 'Ticket Status History',
   type: 'object',
   properties: {
     status: {
-      title: 'Status',
-      description: 'Name of the ticket status.',
-      type: 'string',
-      readOnly: true,
+      $ref: statusRef,
     },
     justification: {
-      title: 'Justification',
-      description: 'Ticket status Reason.',
-      type: 'string',
-      readOnly: true,
+      $ref: justificationRef,
     },
     permanencyTimeFullTime: {
       title: 'Permanency Full Time',
@@ -29,8 +25,8 @@ const base: SchemaObject = {
       type: 'number',
       readOnly: true,
     },
-    updatedBy: {
-      title: 'Updated by',
+    updatedById: {
+      title: 'Updated by identification',
       description: 'User that changed the ticket status.',
       type: 'string',
       readOnly: true,

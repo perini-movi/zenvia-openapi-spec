@@ -17,7 +17,7 @@ const base: SchemaObject = {
       description: 'Name of the category.',
       type: 'string',
       readOnly: true,
-    }
+    },
   },
 };
 

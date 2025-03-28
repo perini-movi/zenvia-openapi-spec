@@ -2,21 +2,19 @@ import { SchemaObject } from 'openapi3-ts';
 import { createComponentRef } from '../../../../../utils/ref';
 
 const base: SchemaObject = {
-  title: 'Justification',
+  title: 'Owner Team',
+  description: 'Owner team if ticket owner is a team',
   type: 'object',
   readOnly: true,
+  nullable: true,
   properties: {
     id: {
-      title: 'Justification ID',
-      description: 'Justification identifier.',
+      title: 'Owner Team Id',
       type: 'integer',
-      readOnly: true,
     },
     name: {
-      title: 'Justification Name',
-      description: 'Name of the justification.',
+      title: 'Owner Team Name',
       type: 'string',
-      readOnly: true,
     },
   },
 };

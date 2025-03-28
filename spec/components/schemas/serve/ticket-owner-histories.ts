@@ -1,22 +1,21 @@
 
 import { SchemaObject } from 'openapi3-ts';
 import { createComponentRef } from '../../../../utils/ref';
+import { ref as ownerTeamRef } from './context/owner-team';
 
 const base: SchemaObject = {
   title: 'Ticket Owner History',
   type: 'object',
   properties: {
-    owner: {
-      title: 'Owner',
+    ownerId: {
+      title: 'Owner ID',
       description: 'Agent that was previously assigned to ticket.',
       type: 'string',
       readOnly: true,
+      example: '5404ed19-2994-4831-bb33-627e27b18ab1',
     },
     ownerTeam: {
-      title: 'Owner Team',
-      description: 'Name of the agent’s team.',
-      type: 'string',
-      readOnly: true,
+     $ref: ownerTeamRef,
     },
     permanencyTimeFullTime: {
       title: 'Permanency Full Time',
@@ -30,11 +29,12 @@ const base: SchemaObject = {
       type: 'number',
       readOnly: true,
     },
-    updatedBy: {
-      title: 'Updated by',
+    updatedById: {
+      title: 'Updated by identification',
       description: 'User that re-assigned the ticket.',
       type: 'string',
       readOnly: true,
+      example: '5404ed19-2994-4831-bb33-627e27b18ab1',
     },
     updatedAt: {
       description: 'Timestamp of the update.',

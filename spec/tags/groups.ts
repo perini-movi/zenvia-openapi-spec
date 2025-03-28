@@ -62,7 +62,7 @@ const groups: TagGroupObject[] = [{
 }, {
   name: 'Serve',
   tags: [
-    'Tickets'
+    'Tickets',
   ],
 }, {
   name: 'Status',

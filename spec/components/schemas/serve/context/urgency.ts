@@ -17,7 +17,7 @@ const base: SchemaObject = {
       description: 'Name of the urgency.',
       type: 'string',
       readOnly: true,
-    }
+    },
   },
 };
 
