@@ -23,7 +23,10 @@ const get: OperationObject = {
       content: {
         'application/json': {
           schema: {
-            $ref: ticketTagDataFieldRef,
+            type: 'array',
+            items: {
+              $ref: ticketTagDataFieldRef,
+            },
           },
         },
       },
@@ -69,7 +72,12 @@ const post: OperationObject = {
   requestBody: {
     content: {
       'application/json': {
-        $ref: ticketTagDataFieldRef,
+        schema: {
+          type: 'array',
+          items: {
+            $ref: ticketTagDataFieldRef,
+          },
+        },
       },
     },
   },
@@ -78,7 +86,12 @@ const post: OperationObject = {
       description: 'Ticket object',
       content: {
         'application/json': {
-          $ref: ticketTagDataFieldRef,
+          schema: {
+            type: 'array',
+            items: {
+              $ref: ticketTagDataFieldRef,
+            },
+          },
         },
       },
     } as ResponseObject,
