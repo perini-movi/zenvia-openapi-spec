@@ -10,5 +10,3 @@ const profileType: SchemaObject = {
 
 export const ref = createComponentRef(__filename);
 export default profileType;
-
-

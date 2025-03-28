@@ -1,7 +1,9 @@
 import { SchemaObject } from 'openapi3-ts';
 import { createComponentRef } from '../../../../utils/ref';
 import { ref as ticketTypeRef } from './context/ticket-type';
-import { ref as originRef } from './context/origin';
+import { ref as justificationRef } from './context/justification';
+import { ref as statusRef } from './context/status';
+import { ref as originRef } from './context/origin-type';
 
 const base: SchemaObject = {
   title: 'Ticket Actions',
@@ -18,16 +20,10 @@ const base: SchemaObject = {
       $ref: ticketTypeRef,
     },
     justification: {
-      title: 'Justification',
-      type: 'string',
+      $ref: justificationRef,
     },
     status: {
-      title: 'Status',
-      type: 'string',
-    },
-    description: {
-      title: 'Description',
-      type: 'string',
+      $ref: statusRef,
     },
     origin: {
       $ref: originRef,

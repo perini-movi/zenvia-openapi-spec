@@ -2,8 +2,8 @@ import { SchemaObject } from 'openapi3-ts';
 import { createComponentRef } from '../../../../../utils/ref';
 
 const systemStatus: SchemaObject = {
-  title: 'System Status',
-  description: 'System status linked with the status of the ticket',
+  title: 'Status Type',
+  description: 'System status type',
   type: 'string',
   enum: [
     'New', 'InAttendance', 'Stopped', 'Canceled', 'Resolved', 'Closed',
