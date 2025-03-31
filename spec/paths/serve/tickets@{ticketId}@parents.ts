@@ -4,6 +4,7 @@ import { ref as pageRef } from '../../components/parameters/page';
 import { ref as sizeRef } from '../../components/parameters/size';
 import { ref as ticketIdRef } from '../../components/parameters/serve/ticketId';
 
+// [TODOQ4]
 const get: OperationObject = {
   summary: 'List ticket parents',
   description: 'Lists all ticket parents available.',

@@ -59,6 +59,7 @@ const get: OperationObject = {
   } as ResponsesObject,
 };
 
+// [TODOQ3]
 const post: OperationObject = {
   summary: 'Create ticket',
   description: 'Create new ticket.',

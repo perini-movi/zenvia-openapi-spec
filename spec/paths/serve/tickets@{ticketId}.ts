@@ -28,6 +28,7 @@ const get: OperationObject = {
   } as ResponsesObject,
 };
 
+// [TODOQ3]
 const patch: OperationObject = {
   summary: 'Update ticket by id',
   description: 'Update ticket information by id.',
