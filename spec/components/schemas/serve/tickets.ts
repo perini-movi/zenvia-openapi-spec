@@ -35,6 +35,13 @@ const base: SchemaObject = {
     origin: {
       $ref: originTypeRef,
     },
+    originEmailAccount: {
+      title: 'Origin Account Email',
+      description: 'Support email account that received the email which created the ticket.',
+      type: 'string',
+      readOnly: true,
+      nullable: true,
+    },
     subject: {
       title: 'Subject',
       description: 'Subject of the ticket.',
@@ -105,7 +112,7 @@ const base: SchemaObject = {
     },
     categoryId: {
       title: 'Category ID',
-      description: 'Category identification',
+      description: 'Category identification.',
       type: 'integer',
       writeOnly: true,
       nullable: true,
@@ -115,7 +122,7 @@ const base: SchemaObject = {
     },
     urgencyId: {
       title: 'Urgency ID',
-      description: 'Urgency identification',
+      description: 'Urgency identification. The urgency must be an allowed priority for the ticket category.',
       type: 'integer',
       writeOnly: true,
       nullable: true,
@@ -125,7 +132,7 @@ const base: SchemaObject = {
     },
     statusId: {
       title: 'Status ID',
-      description: 'Status identification',
+      description: 'Status identification. The status must be valid for the ticket type.',
       type: 'integer',
       writeOnly: true,
     },
@@ -144,7 +151,7 @@ const base: SchemaObject = {
     },
     justificationId: {
       title: 'Justification ID',
-      description: 'Justification identification',
+      description: 'Justification identification. The justification must be an allowed Reason for the ticket status.',
       type: 'integer',
       writeOnly: true,
       nullable: true,
