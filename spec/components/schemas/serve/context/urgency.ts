@@ -5,6 +5,7 @@ const base: SchemaObject = {
   title: 'Urgency',
   type: 'object',
   readOnly: true,
+  nullable: true,
   properties: {
     id: {
       title: 'Urgency ID',

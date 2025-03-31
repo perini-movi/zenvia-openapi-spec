@@ -45,6 +45,7 @@ const base: SchemaObject = {
       title: 'First Ticket Action',
       type: 'object',
       writeOnly: true,
+      nullable: false,
       properties: {
         type: {
           $ref: ticketTypeRef,
@@ -69,6 +70,7 @@ const base: SchemaObject = {
       title: 'Cc',
       description: 'Emails in cc of the ticket',
       type: 'array',
+      nullable: true,
       items: {
         type: 'string',
         example: 'cc1@zenvia.com',
@@ -78,6 +80,7 @@ const base: SchemaObject = {
       title: 'Clients',
       description: 'Clients of the ticket',
       type: 'array',
+      nullable: false,
       items: {
         type: 'string',
         example: 'a4a4bc53-8396-4190-92e3-7edb6826e3dc',
@@ -94,6 +97,7 @@ const base: SchemaObject = {
       title: 'Owner Team Id',
       description: 'Owner team identification if ticket owner is a team',
       type: 'integer',
+      nullable: true,
       writeOnly: true,
     },
     ownerTeam: {
@@ -104,6 +108,7 @@ const base: SchemaObject = {
       description: 'Category identification',
       type: 'integer',
       writeOnly: true,
+      nullable: true,
     },
     category: {
       $ref: categoryRef,
@@ -113,6 +118,7 @@ const base: SchemaObject = {
       description: 'Urgency identification',
       type: 'integer',
       writeOnly: true,
+      nullable: true,
     },
     urgency: {
       $ref: urgencyRef,
@@ -131,6 +137,7 @@ const base: SchemaObject = {
       description: 'Service identification',
       type: 'integer',
       writeOnly: true,
+      nullable: true,
     },
     service: {
       $ref: serviceRef,
@@ -140,6 +147,7 @@ const base: SchemaObject = {
       description: 'Justification identification',
       type: 'integer',
       writeOnly: true,
+      nullable: true,
     },
     justification: {
       $ref: justificationRef,
@@ -149,18 +157,21 @@ const base: SchemaObject = {
       description: 'Resolved ticket timestamp',
       type: 'string',
       example: '2022-05-23T19:37:59.000Z',
+      nullable: true,
     },
     reopenedAt: {
       title: 'Reopened At',
       description: 'Reopened ticket timestamp',
       type: 'string',
       example: '2022-05-23T19:37:59.000Z',
+      nullable: true,
     },
     closedAt: {
       title: 'Closed At',
       description: 'Closed ticket timestamp',
       type: 'string',
       example: '2022-05-23T19:37:59.000Z',
+      nullable: true,
     },
     createdAt: {
       title: 'Created At',
@@ -227,15 +238,15 @@ const base: SchemaObject = {
     },
     solutionChangedByUser: {
       title: 'Solution Changed By User',
-      description: 'Defines if solution was changed by some user or by the system',
+      description: 'Returns true if the current ticket resolution due date was set manually, and false if it was calculated by the system',
       type: 'boolean',
       readOnly: true,
-      nullable: true,
     },
     solutionChangedById: {
       title: 'Solution Changed By User Id',
       description: 'The last user that changed the solution',
       type: 'string',
+      readOnly: true,
       nullable: true,
       example: '5404ed19-2994-4831-bb33-627e27b18ab1',
     },
@@ -280,6 +291,7 @@ const base: SchemaObject = {
     customFields: {
       title: 'Custom Fields Values',
       type: 'array',
+      nullable: true,
       writeOnly: true,
       items: {
         $ref: customFieldValuesRef,

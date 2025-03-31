@@ -5,6 +5,7 @@ const base: SchemaObject = {
   title: 'Category',
   type: 'object',
   readOnly: true,
+  nullable: true,
   properties: {
     id: {
       title: 'Category ID',

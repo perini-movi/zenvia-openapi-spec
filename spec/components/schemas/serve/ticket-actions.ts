@@ -40,6 +40,7 @@ const base: SchemaObject = {
       description: 'Justification identification',
       type: 'integer',
       writeOnly: true,
+      nullable: true,
     },
     justification: {
       $ref: justificationRef,
@@ -49,6 +50,7 @@ const base: SchemaObject = {
       description: 'Timestamp of the ticket creation.',
       type: 'string',
       example: '2022-05-23T19:37:59.000Z',
+      nullable: true,
     },
     createdById: {
       title: 'Created By ID',

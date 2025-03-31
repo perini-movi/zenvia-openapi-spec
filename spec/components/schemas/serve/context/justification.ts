@@ -5,6 +5,7 @@ const base: SchemaObject = {
   title: 'Justification',
   type: 'object',
   readOnly: true,
+  nullable: true,
   properties: {
     id: {
       title: 'Justification ID',
