@@ -78,7 +78,7 @@ const post: OperationObject = {
     },
   },
   responses: {
-    200: {
+    201: {
       description: 'Ticket object',
       content: {
         'application/json': {
